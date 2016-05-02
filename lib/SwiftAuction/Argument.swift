@@ -25,3 +25,16 @@ public final class ArgsParser {
         execute = arguments.first
     }
 }
+
+extension Executer {
+
+    // Create request provider by arguments.
+    public func createProvider(argsParser: ArgsParser) -> RequestProvider {
+
+        var provider: RequestProvider?
+
+        // TODO
+
+        return provider!
+    }
+}

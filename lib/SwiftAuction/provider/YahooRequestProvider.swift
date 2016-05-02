@@ -9,10 +9,10 @@
 public final class YahooRequestProvider : RequestProvider {
 
     // Name of auction site.
-    let name: String = "yahoo"
+    public let name: String = "yahoo"
 
     // TODO set url
-    let url: String = ""
+    public let url: String = "http://"
 
     // Get url of yahoo auction site infomation.
     public func getInformationUrl() -> String {
