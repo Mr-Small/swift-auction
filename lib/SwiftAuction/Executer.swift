@@ -16,5 +16,6 @@ public final class Executer {
     public func exec(argsParser: ArgsParser) {
 
         let provider = createProvider(argsParser)
+        print(provider.name)
     }
 }
