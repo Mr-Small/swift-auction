@@ -1,10 +1,19 @@
 #!/usr/bin/env bash
 
-mkdir build
+CARTHAGE=Carthage/Build/Mac
 
-swiftc lib/main.swift \
+if [ -e build ]; then
+  rm -rf build
+  mkdir build
+else
+  mkdir build
+fi
+
+xcrun -sdk macosx swiftc \
+       -F$CARTHAGE -Xlinker -rpath -Xlinker $CARTHAGE \
+       lib/main.swift \
        lib/SwiftAuction/Argument.swift \
        lib/SwiftAuction/Executer.swift \
        lib/SwiftAuction/RequestProvider.swift \
        lib/SwiftAuction/Provider/YahooRequestProvider.swift \
-       -o build/out.swift
+       -o build/SwiftAuction
