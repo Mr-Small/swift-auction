@@ -9,7 +9,7 @@ else
   mkdir build
 fi
 
-xcrun -sdk macosx swiftc \
+xcrun -sdk macosx swiftc -v \
        -F$CARTHAGE -Xlinker -rpath -Xlinker $CARTHAGE \
        lib/main.swift \
        lib/SwiftAuction/Argument.swift \
