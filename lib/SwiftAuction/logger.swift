@@ -1,4 +1,9 @@
-#!/usr/bin/swift
+//
+// Logger.swift
+// swift-auction
+//
+// Created by Mr-Small on 2016-5
+//
 
 import Foundation
 
@@ -30,7 +35,7 @@ class Logger{
     file: String,
     line: Int) {
 
-      let now = NSDate() //現在日時の取得
+      let now = NSDate() //Display of the current date and time
       let dataFormatter = NSDateFormatter()
       dataFormatter.locale = NSLocale(localeIdentifier: "ja_JP")
       dataFormatter.timeStyle = .MediumStyle
