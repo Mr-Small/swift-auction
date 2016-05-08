@@ -14,6 +14,9 @@ public protocol RequestProvider {
     // Base url of auction site api.
     var url: String { get }
 
+    // Action of provider.
+    var action: String { set get }
+
     // Get url of auction site infomation.
     func getInformationUrl() -> String
 

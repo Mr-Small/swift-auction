@@ -5,6 +5,12 @@
 // Created by Mr-Small on 2016-05
 //
 
+// Enum provider.
+public enum Providers : String {
+  case Yahoo = "yahoo"
+  case Rakuten = "rakuten"
+}
+
 // Argument's template struct.
 public struct Argument<T> {
 
@@ -103,12 +109,16 @@ extension Executer {
 
         var provider: RequestProvider?
 
-        print(argsParser.getProvider())
-        print(argsParser.getAction())
+        switch argsParser.getProvider() {
+          case "yahoo":
+            provider = YahooRequestProvider()
+          default:
+            print("Invalid argument. \(argsParser.getProvider())")
+        }
 
-        // TODO for debug.
-        provider = YahooRequestProvider()
-
+        if var p = provider {
+          p.action = argsParser.getAction()
+        }
         return provider!
     }
 }

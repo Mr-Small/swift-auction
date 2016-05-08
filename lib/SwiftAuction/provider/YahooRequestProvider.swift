@@ -14,6 +14,9 @@ public final class YahooRequestProvider : RequestProvider {
     // TODO set url
     public let url: String = "http://"
 
+    // Action to auction size.
+    public var action: String = ""
+
     // Get url of yahoo auction site infomation.
     public func getInformationUrl() -> String {
         // TODO set url
