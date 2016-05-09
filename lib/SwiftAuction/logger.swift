@@ -10,24 +10,24 @@ import Foundation
 class Logger{
   class func debud(
     message: String,
-    function: String = __FUNCTION__,
-    file: String = __FILE__,
-    line: Int = __LINE__) { Logger.write("[DECUG]",message: message, function: function, file: file, line: line )};
+    function: String = #function,
+    file: String = #file,
+    line: Int = #line) { Logger.write("[DECUG]",message: message, function: function, file: file, line: line )};
   class func info(
     message: String,
-    function: String = __FUNCTION__,
-    file: String = __FILE__,
-    line: Int = __LINE__) { Logger.write("[INFO]",message: message, function: function, file: file, line: line )};
+    function: String = #function,
+    file: String = #file,
+    line: Int = #line) { Logger.write("[INFO]",message: message, function: function, file: file, line: line )};
   class func warnig(
     message: String,
-    function: String = __FUNCTION__,
-    file: String = __FILE__,
-    line: Int = __LINE__) { Logger.write("WARNING",message: message, function: function, file: file, line: line)};
+    function: String = #function,
+    file: String = #file,
+    line: Int = #line) { Logger.write("WARNING",message: message, function: function, file: file, line: line)};
   class func error(
     message: String,
-    function: String = __FUNCTION__,
-    file: String = __FILE__,
-    line: Int = __LINE__) { Logger.write("ERROR",message: message, function: function, file: file, line: line)};
+    function: String = #function,
+    file: String = #file,
+    line: Int = #line) { Logger.write("ERROR",message: message, function: function, file: file, line: line)};
   class func write(
     loglevel: String,
     message: String,
@@ -42,12 +42,12 @@ class Logger{
       dataFormatter.dateStyle = .MediumStyle
       //println(dateFormatter.stringFromDate(now))
 
-      var nowdate = dataFormatter.stringFromDate(now)
+      let nowdate = dataFormatter.stringFromDate(now)
 
       var filename = file
       if let match = filename.rangeOfString("[^/]*$", options: .RegularExpressionSearch) {
         filename = filename.substringWithRange(match)
       }
-      println("\(loglevel) => \"\(message)\" \(nowdate) Line:\(line) \(function) @\(filename)")
+      print("\(loglevel) => \"\(message)\" \(nowdate) Line:\(line) \(function) @\(filename)")
     }
 }
