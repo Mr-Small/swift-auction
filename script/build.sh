@@ -16,4 +16,5 @@ xcrun -sdk macosx swiftc -v \
        lib/SwiftAuction/Executer.swift \
        lib/SwiftAuction/RequestProvider.swift \
        lib/SwiftAuction/Provider/YahooRequestProvider.swift \
+       lib/SwiftAuction/logger.swift \
        -o build/SwiftAuction
