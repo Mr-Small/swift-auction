@@ -113,7 +113,7 @@ extension Executer {
           case "yahoo":
             provider = YahooRequestProvider()
           default:
-            print("Invalid argument. \(argsParser.getProvider())")
+            Logger.warnig("Invalid argument. \(argsParser.getProvider())")
         }
 
         if var p = provider {
