@@ -8,17 +8,20 @@
 // Provider for request url of yahoo auction site api.
 public final class YahooRequestProvider : RequestProvider {
 
+    // Id of auction site.
+    public let id: String = ""
+
     // Name of auction site.
     public let name: String = "yahoo"
 
-    // TODO set url
-    public let url: String = "http://"
+    // Base url of auction site.
+    public let url: String = "http://auctions.yahooapis.jp/AuctionWebService/V2/json/"
 
     // Action to auction size.
     public var action: String = ""
 
-    // Get url of yahoo auction site infomation.
-    public func getInformationUrl() -> String {
+    // Get request url of auction site.
+    public func getRequestUrl() -> String {
         // TODO set url
         return url + ""
     }

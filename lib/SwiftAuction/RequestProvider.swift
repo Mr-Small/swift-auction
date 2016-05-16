@@ -8,6 +8,9 @@
 // Provider for request url of auction site api.
 public protocol RequestProvider {
 
+    // Id of auction site.
+    var id: String { get }
+
     // Name of auction site.
     var name: String { get }
 
@@ -17,8 +20,8 @@ public protocol RequestProvider {
     // Action of provider.
     var action: String { set get }
 
-    // Get url of auction site infomation.
-    func getInformationUrl() -> String
+    // Get request url of auction site.
+    func getRequestUrl() -> String
 
     // TODO and more...
 }
