@@ -15,21 +15,7 @@ public enum Actions : String {
   case BidHistory = "BidHistory"
 
   // String -> Actions.
-  func toAction(value: String) -> Actions {
-
-    switch(value) {
-      case "Stock":
-        return .Stock
-      case "SellingList":
-        return .SellingList
-      case "Search":
-        return .Search
-      case "Item":
-        return .Item
-      case "BidHistory":
-        return .BidHistory
-      default:
-        return .Category // Default value.
-    }
+  static func toAction(value: String) -> Actions? {
+    return Actions(rawValue: value)
   }
 }
