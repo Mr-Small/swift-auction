@@ -42,6 +42,8 @@ public final class ArgsParser {
     private var argProvider: Argument<String> = Argument<String>("yahoo")
     // Action value.
     private var argAction: Argument<String> = Argument<String>("info")
+    // User params.
+    private var userParam: String?
 
     // Initialize.
     public init(_ arguments: [String]) {
@@ -54,6 +56,7 @@ public final class ArgsParser {
 
         var provider: Bool = false
         var action: Bool = false
+        var user: Bool = false
 
         for i in 1..<arguments.count {
             let arg = arguments[i]
@@ -66,6 +69,11 @@ public final class ArgsParser {
               case "-a":
               // Action use api.
               action = true
+              continue
+
+              case "-u":
+              // User params.
+              user = true
               continue
 
               default:
@@ -83,6 +91,12 @@ public final class ArgsParser {
               action = false
               continue
             }
+            // Set User param.
+            if user {
+              userParam = arg
+              user = true
+              continue
+            }
         }
     }
 
@@ -94,6 +108,11 @@ public final class ArgsParser {
     // Get Action.
     public func getAction() -> String {
         return argAction.getValue()!
+    }
+
+    // Get user params.
+    public func getUserParams() -> String? {
+        return userParam
     }
 }
 
@@ -108,7 +127,7 @@ extension Executer {
           case Providers.Yahoo.rawValue:
             provider = YahooRequestProvider()
           default:
-            print("Invalid argument. \(argsParser.getProvider())")
+            Logger.warnig("Invalid argument. \(argsParser.getProvider())")
         }
 
         if var p = provider {

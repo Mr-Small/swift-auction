@@ -21,8 +21,9 @@ public final class Executer {
         print(provider.name)
 
         // TODO deleteme for debug
-        let url: String = "https://httpbin.org/get"
+        let url: String = provider.getRequestUrl()
         request(url, ["foo" : "bar"])
+        
         showDialog(url)
     }
 
