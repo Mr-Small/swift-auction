@@ -12,6 +12,8 @@ fi
 xcrun -sdk macosx swiftc -v \
        -F$CARTHAGE -Xlinker -rpath -Xlinker $CARTHAGE \
        lib/main.swift \
+       lib/SwiftAuction/Providers.swift \
+       lib/SwiftAuction/Actions.swift \
        lib/SwiftAuction/Argument.swift \
        lib/SwiftAuction/Executer.swift \
        lib/SwiftAuction/RequestProvider.swift \
