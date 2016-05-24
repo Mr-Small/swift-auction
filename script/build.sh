@@ -20,3 +20,15 @@ xcrun -sdk macosx swiftc -v \
        lib/SwiftAuction/Provider/YahooRequestProvider.swift \
        lib/SwiftAuction/logger.swift \
        -o build/SwiftAuction
+
+# Build for test.
+xcrun -sdk macosx swiftc -v \
+      -lswiftCore \
+      -F$CARTHAGE \
+      -F$(xcrun --show-sdk-platform-path)/Developer/Library/Frameworks \
+      -Xlinker -rpath -Xlinker $CARTHAGE \
+      -Xlinker -rpath -Xlinker $(xcrun --show-sdk-platform-path)/Developer/Library/Frameworks \
+      test/main.swift \
+      test/SwiftAuctionTest.swift \
+      test/Provider/YahooRequestProviderTest.swift \
+      -o build/SwiftAuctionSpecs
