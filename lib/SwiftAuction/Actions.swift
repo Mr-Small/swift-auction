@@ -7,6 +7,7 @@
 
 // Enum action.
 public enum Actions : String {
+  case None = ""
   case Category = "Category"
   case Stock = "Stock"
   case SellingList = "SellingList"

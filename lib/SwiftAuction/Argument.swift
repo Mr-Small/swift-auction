@@ -41,7 +41,7 @@ public final class ArgsParser {
     // Provider value.
     private var argProvider: Argument<String> = Argument<String>("yahoo")
     // Action value.
-    private var argAction: Argument<String> = Argument<String>("info")
+    private var argAction: Argument<String> = Argument<String>("")
     // User params.
     private var userParam: String?
 
@@ -94,7 +94,7 @@ public final class ArgsParser {
             // Set User param.
             if user {
               userParam = arg
-              user = true
+              user = false
               continue
             }
         }
@@ -132,6 +132,9 @@ extension Executer {
 
         if var p = provider {
           p.action = argsParser.getAction()
+          if let _ =  argsParser.getUserParams() {
+            p.userParams = argsParser.getUserParams()!
+          }
         }
         return provider!
     }

@@ -20,8 +20,14 @@ public protocol RequestProvider {
     // Action of provider.
     var action: String { set get }
 
+    // User params.
+    var userParams: String { set get }
+
     // Get request url of auction site.
     func getRequestUrl() -> String
+
+    // Get action enum.
+    func getAction() -> Actions
 
     // TODO and more...
 }

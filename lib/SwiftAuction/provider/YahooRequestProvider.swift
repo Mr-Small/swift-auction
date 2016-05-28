@@ -20,9 +20,36 @@ public final class YahooRequestProvider : RequestProvider {
     // Action to auction size.
     public var action: String = ""
 
+    // User params.
+    public var userParams: String = ""
+
     // Get request url of auction site.
     public func getRequestUrl() -> String {
-        // TODO set url
-        return url + ""
+        // Add url string value.
+        var str: String = ""
+
+        let actionType = getAction()
+        switch actionType {
+          case .None:
+            str = ""
+          case .Category:
+            str = "categoryTree"
+          case .Stock:
+            str = "categoryLeaf"
+          case .SellingList:
+            str = "sellingList"
+          case .Search:
+            str = "search"
+          case .Item:
+            str = "auctionItem"
+          case .BidHistory:
+            str = "BidHistory"
+        }
+        return url + str
+    }
+
+    // Get action enum.
+    public func getAction() -> Actions {
+      return Actions.toAction(action)!
     }
 }
